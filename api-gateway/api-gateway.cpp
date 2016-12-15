@@ -1,11 +1,16 @@
-// api-gateway.cpp : Defines the entry point for the console application.
-//
 
-#include "stdafx.h"
+#include "Nostromo.h"
 
 
 int main()
 {
-    return 0;
-}
+	Nostromo* n = new Nostromo();
+	
+	uclog << U("Starting listener.") << endl;
 
+	n->start_at(U("http://localhost:9090/nostromo"));
+	uclog << U("Terminating JSON listener.") << endl;
+
+
+	return 0;
+}
