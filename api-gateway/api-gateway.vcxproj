@@ -98,12 +98,12 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>
-      </PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>C:\Users\a03550a\Documents\Visual Studio 2015\Projects\aps-microservices\aps-microservices;C:\Users\a03550a\Documents\PRS\RxCpp\Rx\v2\src;C:\Users\a03550a\Documents\PRS\boost_1_60_0\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -150,11 +150,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\Visual Studio 2015\Projects\aps-microservices\aps-microservices\mvs_connection.h" />
     <ClInclude Include="Nostromo.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\Visual Studio 2015\Projects\aps-microservices\aps-microservices\mvs_connection.cpp" />
     <ClCompile Include="api-gateway.cpp" />
     <ClCompile Include="Nostromo.cpp" />
     <ClCompile Include="stdafx.cpp" />

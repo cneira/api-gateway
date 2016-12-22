@@ -10,19 +10,18 @@ Nostromo::Nostromo()
 namespace {
 
 
-	void respond(const http_request& request, const status_code& status, const json::value& response) {
+	void respond(const http_request& request, const status_code& status,json::value resp) {
 
 		json::value resp;
 		resp[U("status")] = json::value::string(U("running"));
 		resp[U("version")] = json::value::string(U("1.0"));
 
-		request.reply(status_codes::OK, resp);
 		request.reply(status, resp);
+		
 	};
 
-
-
 	void handle_get(http_request req) {
+
 		auto http_get_vars = uri::split_query(req.request_uri().query());
 
 		auto found_name = http_get_vars.find(U("request"));
@@ -37,10 +36,10 @@ namespace {
 		auto request_name = found_name->second;
 		uclog << U("Received request: ") << request_name << endl;
 		respond(req, status_codes::OK, json::value::string(U("Request received for: ") + request_name));
+		
 	}
 
-	// implement rest of http methods later
-	// ...
+	
 
 	void handle_post(http_request req) {
 
@@ -50,9 +49,6 @@ namespace {
 
 		req.reply(status_codes::OK, resp);
 	}
-
-
-
 }
 
 void Nostromo::start_at(const web::uri url) {
